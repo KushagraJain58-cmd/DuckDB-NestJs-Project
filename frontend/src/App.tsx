@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './App.css'
-import { ArrowRight, AudioLines, Loader, Mic } from "lucide-react";
-import { Bar, Pie } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
-const BACKEND_URL = "https://duck-db-nest-js-project-rw8d.vercel.app";
+import { ArrowRight, AudioLines, Calendar, ChartNoAxesColumnIncreasing, DollarSign, Loader, Mic, Users } from "lucide-react";
+// import { Bar, Pie } from "react-chartjs-2";
+// import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+
+const Backend_URL: string = "https://duckdb-nestjs-project-1.onrender.com"
 
 const App: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -41,6 +42,9 @@ const App: React.FC = () => {
     alert("Speech Recognition API not supported in this browser.");
   }
 
+  const customPrompt = (data: string) => {
+    setQuery(data)
+  }
 
   // Handle file selection
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +67,7 @@ const App: React.FC = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${BACKEND_URL}/upload`,
+        `${Backend_URL}/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -87,7 +91,7 @@ const App: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${BACKEND_URL}/upload`, {
+      const response = await axios.post(`${Backend_URL}/query`, {
         naturalLanguageQuery: query,
       });
 
@@ -308,6 +312,36 @@ const App: React.FC = () => {
       {/* Query Section */}
       {upload && <div style={{ marginBottom: "20px" }} className="query-box">
         <h3>Enter a Query</h3>
+        <div className="sample-query">
+          <button className='flex items-center justify-center shadow-sm shadow-slate-300 rounded-lg py-1 px-2 gap-1 text-sm'
+            onClick={() => customPrompt("Show me the top 5 Customer_name by Quantity")}>
+            <ChartNoAxesColumnIncreasing size={18} />
+            <span>
+              Show me the top 5 Customer_name by Quantity
+            </span>
+          </button>
+          <button className='flex items-center justify-center shadow-sm shadow-slate-300 rounded-lg py-1 px-2 gap-1 text-sm'
+            onClick={() => customPrompt("Calculate average Shipping_Cost to 2 decimal points value by country")}>
+            <Users size={18} />
+            <span>
+              Calculate average Shipping_Cost to 2 decimal points value by country
+            </span>
+          </button>
+          <button className='flex items-center justify-center shadow-sm shadow-slate-300 rounded-lg py-1 px-2 gap-1 text-sm'
+            onClick={() => customPrompt("List all Profit from the past month with limit 10")}>
+            <Calendar size={18} />
+            <span>
+              List all Profit from the past month with limit 10
+            </span>
+          </button>
+          <button className='flex items-center justify-center shadow-sm shadow-slate-300 rounded-lg py-1 px-2 gap-1 text-sm'
+            onClick={() => customPrompt("Find Sales which is more than 2000 with limit 20")}>
+            <DollarSign size={18} />
+            <span>
+              Find Sales which is more than 20000 with limit 20
+            </span>
+          </button>
+        </div>
         <textarea
           placeholder="Enter your natural language query"
           value={query}

@@ -95,6 +95,15 @@
    border-radius: 12px;
    padding: 2rem 2rem;
 }
+.sample-query{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
 .query-box h3{
   color: #fff;
 }
