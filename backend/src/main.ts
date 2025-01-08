@@ -18,7 +18,7 @@ async function bootstrap() {
 
   // Enable CORS with specific configuration
   app.enableCors({
-    origin: 'http://localhost:5173', // Allow requests from this origin
+    origin: 'https://duckdb-nestjs.netlify.app/', // Allow requests from this origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
     credentials: true, // Allow credentials (e.g., cookies)
   });
