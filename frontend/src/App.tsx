@@ -4,6 +4,7 @@ import './App.css'
 import { ArrowRight, AudioLines, Loader, Mic } from "lucide-react";
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+const BACKEND_URL = "https://duck-db-nest-js-project-rw8d.vercel.app";
 
 const App: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -62,7 +63,7 @@ const App: React.FC = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/upload",
+        `${BACKEND_URL}/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -86,7 +87,7 @@ const App: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/query", {
+      const response = await axios.post(`${BACKEND_URL}/upload`, {
         naturalLanguageQuery: query,
       });
 
