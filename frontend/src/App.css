@@ -1,0 +1,143 @@
+#root {
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  width: 80%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 100%;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.upload-box{
+   background: rgba(44, 44, 44, 0.37); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(16px) saturate(200%); 
+  -webkit-backdrop-filter: blur(16px) saturate(200%); 
+  padding: 2rem;
+  border-radius: 3rem; 
+  border: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; 
+}
+
+.upload-box h2{
+  color: #fff;
+}
+
+.upload-box label{
+  /* background: rgba(160, 110, 110, 0.37); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(16px) saturate(200%);
+  width: 40%;
+  margin-top: 1.5rem;
+}
+
+.drag-drop{
+  border: 2px dotted #fff;
+  padding: 10rem;
+}
+
+.query-box{
+  /* background-color: #d6d4d4; */
+   background: rgba(44, 44, 44, 0.37); /* Semi-transparent dark grey */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  backdrop-filter: blur(16px) saturate(200%); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+}
+
+.query-box{
+  color:#000;
+   border-radius: 12px;
+   padding: 2rem 2rem;
+}
+.query-box h3{
+  color: #fff;
+}
+.query-box button{
+  background-color: #f2f2f2;
+  padding: 5px 5px;
+  margin-bottom: 5px;
+}
+.query-box button svg{
+  width: 20px;
+  height: 20px;
+}
+.choose-file{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  border: 2px dotted #fff;
+  margin-bottom: 2rem;
+}
+
+.choose-file input{
+  color: #fff;
+  border: 2px dotted #fff;
+  padding: 2rem;
+}
+
+textarea{
+  /* background-color: #fff; */
+  background: rgba(44, 44, 44, 0.37); /* Semi-transparent dark grey */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  backdrop-filter: blur(16px) saturate(200%);
+  border-radius: 12px;
+  margin-right: 2rem;
+  /* border: none; */
+  width: 80% !important;
+  padding: 20px;
+  color: #fff;
+  font-size: 18px;
+}
+button{
+  background-color: #d6d4d4;
+}
+.table-disp{
+  overflow-x: scroll;
+}
