@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import axios from "axios";
 import './App.css'
@@ -17,11 +18,13 @@ const App: React.FC = () => {
   const [recognizing, setRecognizing] = useState<boolean>(false);
 
 
-  let recognition: SpeechRecognition | null = null;
+  let recognition: SpeechRecognition;
+  // let recognition: null = null;
 
   // Initialize Speech Recognition
   if ("webkitSpeechRecognition" in window) {
-    recognition = new (window as any).webkitSpeechRecognition();
+    // recognition = new (window as any).webkitSpeechRecognition();
+    recognition = new window.webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.lang = "en-US";
@@ -66,7 +69,7 @@ const App: React.FC = () => {
     setUpload(true);
     setLoading(true);
     try {
-      const response = await axios.post(
+      await axios.post(
         `${Backend_URL}/upload`,
         formData,
         {
